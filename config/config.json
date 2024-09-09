@@ -1,0 +1,35 @@
+{
+    "development": {
+      "dialect": "postgres",
+      "host": "localhost",
+      "username": "postgres",
+      "password": "root",
+      "database": "trabalhofullstack",
+      "define": {
+        "timestamps": false,
+        "underscore": false
+      }
+    },
+    "test": {
+      "dialect": "postgres",
+      "host": "localhost",
+      "username": "postgres",
+      "password": "root",
+      "database": "trabalhofullstack_test",
+      "define": {
+        "timestamps": false,
+        "underscore": false
+      }
+    },
+    "production": {
+      "dialect": "postgres",
+      "host": "localhost",
+      "username": "postgres",
+      "password": "root",
+      "database": "trabalhofullstack_production",
+      "define": {
+        "timestamps": false,
+        "underscore": false
+      }
+    }
+  }
