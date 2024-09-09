@@ -2,18 +2,20 @@
 const baseUrl = 'http://localhost:3000/api';
 
 function displayPersons(persons) {
+    
     const personList = document.getElementById('personList');
     personList.innerHTML = '';
 
     persons.forEach(person => {
+
         const personElement = document.createElement('div');
         personElement.className = 'person';
         personElement.innerHTML = `
             <h3>${person.name}</h3>
             <p>CPF: ${person.cpf}</p>
             <p>Phone: ${person.phone}</p>
-            <button class="update-btn" data-id="${person.id}">Update</button>
-            <button class="delete-btn" data-id="${person.id}">Delete</button>
+            <button class="update-btn" data-id="${person.id}">Atualizar</button>
+            <button class="delete-btn" data-id="${person.id}">Deletar</button>
         `;
         personList.appendChild(personElement);
     });
@@ -21,6 +23,7 @@ function displayPersons(persons) {
 
 
 function addPerson(e) {
+
     e.preventDefault();
 
     
@@ -40,6 +43,8 @@ function addPerson(e) {
         },
         body: JSON.stringify({ name, cpf, phone }),
     })
+
+
     .then(response => {
         if (!response.ok) throw new Error('Falha ao adicionar cadastro');
         return response.json();
@@ -49,6 +54,8 @@ function addPerson(e) {
         fetchPersons();
         document.getElementById('addForm').reset();
     })
+
+
     .catch(error => {
         console.error('Error:', error);
         showMessage('Falha ao adicionar cadastro', false, 'add-tab');
@@ -57,6 +64,7 @@ function addPerson(e) {
 
 
 function updatePerson(e) {
+
     e.preventDefault();
 
     const id = document.getElementById('updateId').value;
@@ -110,7 +118,7 @@ function deletePerson(id) {
     });
 }
 
-// Função para buscar os cadastros pela API
+
 function fetchPersons() {
     fetch(`${baseUrl}/persons`)
         .then(response => {
@@ -157,19 +165,18 @@ function showTab(index) {
     buttons[index].classList.add('active');
 
     if (index === 1) {
-        fetchPersons(); // Buscar os cadastros ao exibir a aba de atualização/deleção
+        fetchPersons(); 
     }
 }
 
-// Event Listeners
+
 document.addEventListener('DOMContentLoaded', () => {
-    showTab(0); // Mostrar a aba de cadastro por padrão
+    showTab(0); 
 });
 
-// Event Listeners - Adicionar cadastro
 document.getElementById('addForm').addEventListener('submit', addPerson);
 
-// Event Listeners - Atualizar e deletar cadastros
+
 document.body.addEventListener('click', function(e) {
     if (e.target.classList.contains('update-btn')) {
         const personId = e.target.dataset.id;
@@ -192,6 +199,6 @@ document.body.addEventListener('click', function(e) {
     }
 });
 
-// Event Listeners - Botões da aba de atualização/deleção
+
 document.getElementById('updateBtn').addEventListener('click', updatePerson);
 document.getElementById('cancelBtn').addEventListener('click', () => toggleUpdateForm(false));

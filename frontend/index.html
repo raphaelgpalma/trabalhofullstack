@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciador de cadastros</title>
+    <title>Trabalho Raphael</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Cadastro de pessoas</h1>
+        <h1>Cadastro de dados pessoais</h1>
 
         <div class="tab-buttons">
-            <button class="tab-button" onclick="showTab(0)">Novo Cadastro</button>
-            <button class="tab-button" onclick="showTab(1)">Gerenciar Cadastros</button>
+            <button class="tab-button" onclick="showTab(0)">Cadastrar Novo</button>
+            <button class="tab-button" onclick="showTab(1)">Administrar Registros</button>
         </div>
 
         <div id="add-tab" class="tab-content active">
@@ -30,7 +30,7 @@
                     <label for="phone">Telefone:</label>
                     <input type="text" id="phone" required>
                 </div>
-                <button type="submit">Adicionar cadastro</button>
+                <button type="submit">Adicionar Novo Registro</button>
             </form>
             <div class="message" style="display: none;"></div>
         </div>
@@ -55,8 +55,8 @@
                         <input type="text" id="updatePhone" required>
                     </div>
                     <div class="button-container">
-                        <button type="submit" id="updateBtn">Atualizar Cadastro</button>
-                        <button type="button" id="cancelBtn">Cancelar</button>
+                        <button type="submit" id="updateBtn">Modificar Registro</button>
+                        <button type="button" id="cancelBtn">Abandonar Edição</button>
                     </div>
                 </form>
             </div>
